@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--
+   ============================================================
+   THIS IS THE "MENU" PAGE (menu.html)
+   ============================================================
+   Sections on this page, top to bottom:
+     1. Navbar (same menu bar as every page)
+     2. Menu (the filterable grid of food items - the main content)
+     3. Menu Detail Popup (hidden box that shows when a dish is clicked)
+     4. Special Offer (the countdown timer promo banner)
+     5. Footer (same as every page)
+   ============================================================
+-->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Sarab">
+      <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
+      <title>The Marul.co - Our Menu</title>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+      <!-- Bootstrap 5.3 -->
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <!-- AOS Animate on Scroll -->
+      <link href="css/aos.css" rel="stylesheet"/>
+      <!-- Swiper -->
+      <link href="css/swiper-bundle.min.css" rel="stylesheet"/>
+      <!-- all min css -->
+      <link rel="stylesheet" href="css/all.min.css"/>
+      <!-- magnific CSS -->
+      <link rel="stylesheet" href="css/magnific-popup.css"/>
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body>
+      <!-- ============================================================
+         NAVBAR (same as index.html - see that file for notes)
+         ============================================================ -->
+      <nav class="navbar navbar-expand-lg" id="nav">
+         <div class="container">
+            <a class="navbar-brand" href="index.html">
+               <div class="blogo">
+                  <div class="bico" style="padding:0;overflow:hidden;background:#000;"><img src="img/logo.jpeg" alt="TMC Logo" style="width:100%;height:100%;object-fit:cover;"/></div>
+                  <div>
+                     <div class="bname">Marul<span>.co</span></div>
+                     <div class="bsub">THE BEST MEALS YOU EVER HAD</div>
+                  </div>
+               </div>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <i class="fas fa-bars" style="color:var(--primary);font-size:1.35rem;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+               <ul class="navbar-nav mx-auto">
+                  <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#menu">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html#chefs">Chefs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Reviews</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.html#contact-section">Contact</a></li>
+               </ul>
+               <div class="d-flex align-items-center gap-3">
+                  <a href="https://wa.me/601155566181" target="_blank" rel="noopener" style="color:var(--primary);font-size:1.3rem;" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <!-- ============================================================
+         The filter buttons (All / Burgers / Pizza / etc.) let
+         visitors show only one category - that behaviour is set up
+         in the <script> near the bottom of this page.
+         ============================================================ -->
+      <section id="menu">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">What's Cooking</span>
+               <h2 class="stitle">Our Delicious <span>Menu</span></h2>
+               <div class="sline"></div>
+            </div>
+            <!-- Filter buttons - the data-f="..." value must exactly
+               match the data-c="..." value used on each menu card
+               below (e.g. "burgers" here must match data-c="burgers"
+               on a card), otherwise that filter button won't show
+               anything. -->
+            <div class="text-center mb-4" data-aos="fade-up">
+               <button class="filtbtn active" data-f="all">All</button>
+               <button class="filtbtn" data-f="burgers">Burgers</button>
+               <button class="filtbtn" data-f="pizza">Pizza</button>
+               <button class="filtbtn" data-f="chicken">Chicken</button>
+               <button class="filtbtn" data-f="wraps">Wraps</button>
+               <button class="filtbtn" data-f="desserts">Desserts</button>
+               <button class="filtbtn" data-f="pasta">Pasta</button>
+            </div>
+            <div class="row g-4" id="mgrid">
+               <!--
+                  ================================================
+                  HOW EACH MENU ITEM WORKS
+                  ================================================
+                  Each dish is one block like the "CARD 1: Burgers"
+                  one right below. The dish's info is stored TWICE:
+
+                  1) On the "data-..." attributes (data-title,
+                     data-price, data-desc, etc.) - these fill in
+                     the pop-up box that appears when someone clicks
+                     the card.
+                  2) Again in plain text further down inside the
+                     card (in "mtit", "mdesc", "mprice") - this is
+                     what's visible on the card itself, before it's
+                     clicked.
+
+                  TO ADD A NEW DISH: copy one whole card block
+                  (starting at the comment line that says CARD 1,
+                  down to its closing
+                  </div> for "col-sm-6 col-lg-4 mwrap"), paste it,
+                  then edit the text/attributes.
+                  TO REMOVE A DISH: delete its whole card block.
+                  ================================================
+               -->
+               <!-- CARD 1: Burgers -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="burgers" data-aos="fade-up">
+                  <div class="mcard"
+                     data-img="img/menu/1.jpg"
+                     data-title="Classic Smash Burger"
+                     data-cat="Burgers"
+                     data-price="RM 14.99" data-old="RM 18.99"
+                     data-rating="4.9" data-reviews="128"
+                     data-cal="620" data-time="12"
+                     data-desc="Double smashed patty, cheddar cheese, caramelized onions, house pickles and our legendary special sauce. Made fresh to order on a toasted brioche bun."
+                     data-tags="Spicy,Bestseller,Beef">
+                     <div class="mimg">
+                        <img src="img/menu/1.jpg" alt="Smash Burger"/>
+                        <div class="mbdg hot"><i class="fas fa-star"></i> Hot</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Burgers</div>
+                        <div class="mtit">Classic Smash Burger</div>
+                        <div class="mdesc">Double smashed patty, cheddar, caramelized onions, pickles & amp; special sauce</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 14.99 <small>RM 18.99</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(128)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 2: Pizza -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="pizza" data-aos="fade-up" data-aos-delay="80">
+                  <div class="mcard"
+                     data-img="img/menu/2.jpg"
+                     data-title="Margherita Royale"
+                     data-cat="Pizza"
+                     data-price="RM 19.99" data-old="RM 24.99"
+                     data-rating="4.8" data-reviews="95"
+                     data-cal="480" data-time="18"
+                     data-desc="San Marzano tomatoes, fresh buffalo mozzarella, fragrant basil leaves, drizzled with Italian truffle oil on a hand-stretched sourdough base."
+                     data-tags="Vegetarian,New,Italian">
+                     <div class="mimg">
+                        <img src="img/menu/2.jpg" alt="Pizza"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> New</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Pizza</div>
+                        <div class="mtit">Seafood Royale</div>
+                        <div class="mdesc">Hawaiian pineapple, beef sausage & amp; a bed of thousand island on sourdough</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 19.99 <small>RM 24.99</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(95)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 3: Chicken -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="chicken" data-aos="fade-up" data-aos-delay="160">
+                  <div class="mcard"
+                     data-img="img/menu/3.jpg"
+                     data-title="Nashville Hot Chicken"
+                     data-cat="Chicken"
+                     data-price="RM 12.99" data-old="RM 16.99"
+                     data-rating="5.0" data-reviews="210"
+                     data-cal="710" data-time="15"
+                     data-desc="Extra-crispy fried chicken tossed in our signature fiery Nashville spice blend, served with honey drizzle and house pickles on a toasted brioche bun."
+                     data-tags="Spicy,Bestseller,Crispy">
+                     <div class="mimg">
+                        <img src="img/menu/3.jpg" alt="Chicken"/>
+                        <div class="mbdg"><i class="fas fa-star"></i> Best Seller</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Chicken</div>
+                        <div class="mtit">Nashville Hot Chicken</div>
+                        <div class="mdesc">Crispy fried chicken in fiery Nashville spice blend with honey drizzle</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 12.99 <small>RM 16.99</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(210)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 4: Wraps -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="wraps" data-aos="fade-up">
+                  <div class="mcard"
+                     data-img="img/menu/4.jpg"
+                     data-title="Loaded Fajita Wrap"
+                     data-cat="Wraps"
+                     data-price="RM 10.99" data-old=""
+                     data-rating="4.5" data-reviews="74"
+                     data-cal="520" data-time="10"
+                     data-desc="Grilled chicken strips, sauted bell peppers and onions, sour cream, fresh guacamole and salsa wrapped in a warm flour tortilla with melted cheddar."
+                     data-tags="Grilled,Fresh,Mexican">
+                     <div class="mimg">
+                        <img src="img/menu/4.jpg" alt="Wrap"/>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Wraps</div>
+                        <div class="mtit">Loaded Fajita Wrap</div>
+                        <div class="mdesc">Grilled chicken, peppers, sour cream & amp; guacamole in a warm tortilla</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 10.99</div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(74)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 5: Desserts -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="desserts" data-aos="fade-up" data-aos-delay="80">
+                  <div class="mcard"
+                     data-img="img/menu/5.jpg"
+                     data-title="Nutella Lava Cake"
+                     data-cat="Desserts"
+                     data-price="RM 8.99" data-old="RM 11.99"
+                     data-rating="4.9" data-reviews="56"
+                     data-cal="390" data-time="8"
+                     data-desc="Warm molten chocolate cake with a gooey Nutella center, served alongside Madagascar vanilla bean ice cream with salted caramel drizzle and fresh berries."
+                     data-tags="Sweet,New,Chocolate">
+                     <div class="mimg">
+                        <img src="img/menu/5.jpg" alt="Lava Cake"/>
+                        <div class="mbdg new"><i class="fas fa-star"></i> New</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Desserts</div>
+                        <div class="mtit">Nutella Lava Cake</div>
+                        <div class="mdesc">Molten chocolate cake with Nutella center, vanilla ice cream & amp; caramel</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 8.99 <small>RM 11.99</small></div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(56)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- CARD 6: Pasta -->
+               <div class="col-sm-6 col-lg-4 mwrap" data-c="pasta" data-aos="fade-up" data-aos-delay="160">
+                  <div class="mcard"
+                     data-img="img/menu/6.jpg"
+                     data-title="Truffle Mushroom Pasta"
+                     data-cat="Pasta"
+                     data-price="RM 16.99" data-old=""
+                     data-rating="4.9" data-reviews="88"
+                     data-cal="560" data-time="20"
+                     data-desc="Al dente tagliatelle tossed with mixed wild mushrooms, freshly shaved black truffle, aged parmesan, fresh thyme and a touch of cream in garlic butter."
+                     data-tags="Vegetarian,Chef's Pick,Italian">
+                     <div class="mimg">
+                        <img src="img/menu/6.jpg" alt="Pasta"/>
+                        <div class="mbdg hot">Chef's Pick</div>
+                        <div class="mhrt"><i class="far fa-heart"></i></div>
+                     </div>
+                     <div class="mbody">
+                        <div class="mcat">Pasta</div>
+                        <div class="mtit">Truffle Mushroom Pasta</div>
+                        <div class="mdesc">Al dente tagliatelle, wild mushrooms, black truffle, parmesan & amp; thyme</div>
+                        <div class="mfoot">
+                           <div>
+                              <div class="mprice">RM 16.99</div>
+                              <div class="mstars"><i class="fas fa-star"></i> <span style="color:#bbb;font-size:.7rem;">(88)</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- end #mgrid -->
+            <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a></div>
+         </div>
+      </section>
+	  
+	  
+      <!-- ============================================================
+         MENU DETAIL POPUP MODAL
+         This hidden box appears when someone clicks a menu card
+         above. It's empty here - JavaScript (main.js) fills it in
+         automatically using that card's data-... attributes. 
+         ============================================================ -->
+      <div id="menuPop">
+         <div class="mpbox">
+            <button class="mpclose" id="mpClose"><i class="fas fa-times"></i></button>
+            <div class="mpimg"><img id="mpImg" src="" alt=""/></div>
+            <div class="mpbody">
+               <div id="mpCat"></div>
+               <div id="mpTitle"></div>
+               <div id="mpStars"></div>
+               <div id="mpDesc"></div>
+               <div id="mpPrice"></div>
+               <div class="mpmeta" id="mpMeta"></div>
+               <div class="mptags" id="mpTags"></div>
+            </div>
+         </div>
+      </div>
+      <!-- SPECIAL OFFER
+         The promo banner with the countdown timer ("Get 30% Off").
+         Edit the <h2 class="sptitle">, <p class="spdesc">, and the
+         prices (RM 24.99 / RM 17.49) to change the offer. The
+         countdown timer's starting time (8 hours 45 min 30 sec) is
+         set in main.js and resets in a loop - it's for visual
+         urgency, not tied to a real deadline/date. -->
+      <section id="special">
+         <div class="spbg"></div>
+         <div class="container" style="position:relative;z-index:2;">
+            <div class="row align-items-center g-5">
+               <div class="col-lg-6" data-aos="fade-right">
+                  <div class="sptag"><i class="fas fa-bolt me-1"></i>Limited Time Offer</div>
+                  <h2 class="sptitle">Get 30% Off<br/>Our Signature<br/><span>Burger</span> Meal</h2>
+                  <p class="spdesc">Don't miss our weekend special - grab our award-winning signature burger combo with loaded fries and a premium shake at an unbeatable price.</p>
+                  <div class="cdwrap">
+                     <div class="cditem"><span class="cdnum" id="cdH">08</span><span class="cdlbl">Hours</span></div>
+                     <div class="cditem"><span class="cdnum" id="cdM">45</span><span class="cdlbl">Minutes</span></div>
+                     <div class="cditem"><span class="cdnum" id="cdS">30</span><span class="cdlbl">Seconds</span></div>
+                  </div>
+                  <a href="#menu" class="btn-red"><i class="fas fa-shopping-cart"></i>Grab the Deal</a>
+               </div>
+               <div class="col-lg-6" data-aos="fade-left">
+                  <div class="spimgw">
+                     <div class="spglow"></div>
+                     <div class="sppbdg"><span class="old">RM 24.99</span><span class="np">RM 17.49</span></div>
+                     <img src="img/off-img.jpg" alt="Special Burger"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- FOOTER (same as index.html - if you update the address,
+         phone, email, or hours here, update it on the other 3
+         pages too so they all stay matching) -->
+      <footer>
+         <div class="container">
+            <div class="row g-5">
+               <div class="col-lg-4">
+                  <div class="fnm">The Marul<span>.co</span></div>
+                  <p class="fdesc">We bring the world's finest flavors together in a fast, friendly, and affordable experience. Every meal crafted with love.</p>
+                  <div class="fsoc">
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                     <a href="#"><i class="fab fa-whatsapp"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Quick Links</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="index.html#hero"><i class="fas fa-chevron-right"></i>Home</a></li>
+                     <li><a href="about.html#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                     <li><a href="menu.html#menu"><i class="fas fa-chevron-right"></i>Our Menu</a></li>
+                     <li><a href="contact.html#contact-section"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Our Menu</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="menu.html?filter=burgers#menu"><i class="fas fa-chevron-right"></i>Burgers</a></li>
+                     <li><a href="menu.html?filter=pizza#menu"><i class="fas fa-chevron-right"></i>Pizza</a></li>
+                     <li><a href="menu.html?filter=chicken#menu"><i class="fas fa-chevron-right"></i>Fried Chicken</a></li>
+                     <li><a href="menu.html?filter=wraps#menu"><i class="fas fa-chevron-right"></i>Wraps & amp; Rolls</a></li>
+                     <li><a href="menu.html?filter=pasta#menu"><i class="fas fa-chevron-right"></i>Pasta</a></li>
+                     <li><a href="menu.html?filter=desserts#menu"><i class="fas fa-chevron-right"></i>Desserts</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-4">
+                  <div class="ftit">Get In Touch</div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-map-marker-alt"></i></div>
+                     <div class="fciinfo"><strong>Address</strong>Lot 1444, Taman Amanah Fasa 1, Jenjarom, Klang.</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-phone-alt"></i></div>
+                     <div class="fciinfo"><strong>Phone</strong>+60 11-5556-6181</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-envelope"></i></div>
+                     <div class="fciinfo"><strong>Email</strong>mazniharit.ofc@gmail.com</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-clock"></i></div>
+                     <div class="fciinfo"><strong>Hours</strong>Wed - Sun: 09 AM - 11 PM</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="fbot">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <p>&copy 2026 <span>The Marul.co</span>. All Rights Reserved.</p>
+                  <div><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="frameset-demo.html">Old Website</a><a href="disclaimer.html">Disclaimer</a></div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- Floating cart -->
+      <!-- <div class="cartfl"><i class="fas fa-shopping-cart"></i><span>My Cart</span><div class="ccount" id="cartCount">0</div></div> -->
+      <!-- Back to top -->
+      <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+    
+	<!-- jQuery -->
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <!-- Bootstrap 5 -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <!-- AOS -->
+      <script src="js/aos.js"></script>
+      <!-- Swiper -->
+      <script src="js/swiper-bundle.min.js"></script>
+      <!-- CounterUp -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Main js -->
+      <script src="js/main.js"></script>
+      <!-- This script below powers the filter buttons above (All /
+         Burgers / Pizza / etc.), showing/hiding menu cards, and
+         also auto-applies a filter if someone arrives here via a
+         link like "menu.html?filter=burgers" (used by the category
+         tiles and footer links on other pages). -->
+      <script>
+         $(function(){
+            // Menu filter buttons (All / Burgers / Pizza / Chicken / Wraps / Desserts / Pasta)
+            function applyFilter(f){
+               $('.filtbtn').removeClass('active').filter('[data-f="' + f + '"]').addClass('active');
+               $('.mwrap').each(function(){
+                  if(f === 'all' || $(this).data('c') === f){
+                     $(this).stop(true, true).fadeIn(300);
+                  } else {
+                     $(this).stop(true, true).fadeOut(200);
+                  }
+               });
+            }
+
+            $('.filtbtn').on('click', function(){
+               applyFilter($(this).data('f'));
+            });
+
+            // Pre-apply a filter if arriving from a category link, e.g. menu.html?filter=burgers
+            var params = new URLSearchParams(window.location.search);
+            var f = params.get('filter');
+            if(f){
+               applyFilter(f);
+            }
+         });
+      </script>
+   </body>
+</html>

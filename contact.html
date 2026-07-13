@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+   ============================================================
+   THIS IS THE "CONTACT US" PAGE (contact.html)
+   ============================================================
+   Sections on this page, top to bottom:
+     1. Navbar (same menu bar as every page)
+     2. Contact (contact info card + the message form)
+     3. Footer (same as every page)
+
+   The message form actually sends emails using a free service
+   called FormSubmit.co - see the notes near the bottom <script>
+   for how that works and how to change the destination email.
+   ============================================================
+-->
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Sarab">
+      <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
+      <title>The Marul.co - Contact Us</title>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+      <!-- Bootstrap 5.3 -->
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <!-- AOS Animate on Scroll -->
+      <link href="css/aos.css" rel="stylesheet"/>
+      <!-- Swiper -->
+      <link href="css/swiper-bundle.min.css" rel="stylesheet"/>
+      <!-- all min css -->
+      <link rel="stylesheet" href="css/all.min.css"/>
+      <!-- magnific CSS -->
+      <link rel="stylesheet" href="css/magnific-popup.css"/>
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body>
+      <!-- ============================================================
+         NAVBAR (same as index.html - see that file for notes)
+         ============================================================ -->
+      <nav class="navbar navbar-expand-lg" id="nav">
+         <div class="container">
+            <a class="navbar-brand" href="index.html">
+               <div class="blogo">
+                  <div class="bico" style="padding:0;overflow:hidden;background:#000;"><img src="img/logo.jpeg" alt="TMC Logo" style="width:100%;height:100%;object-fit:cover;"/></div>
+                  <div>
+                     <div class="bname">Marul<span>.co</span></div>
+                     <div class="bsub">THE BEST MEALS YOU EVER HAD</div>
+                  </div>
+               </div>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <i class="fas fa-bars" style="color:var(--primary);font-size:1.35rem;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+               <ul class="navbar-nav mx-auto">
+                  <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="menu.html#menu">Menu</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about.html#chefs">Chefs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Reviews</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#contact-section">Contact</a></li>
+               </ul>
+               <div class="d-flex align-items-center gap-3">
+                  <a href="https://wa.me/601155566181" target="_blank" rel="noopener" style="color:var(--primary);font-size:1.3rem;" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+               </div>
+            </div>
+         </div>
+      </nav>
+	  
+      <!-- ============================================================
+         CONTACT SECTION
+         Left side ("Let's Talk"): your phone, email, working hours,
+         and social icons - just plain text/links, safe to edit
+         directly.
+         Right side: the actual message form visitors fill in and
+         submit - see the notes further down near </form> for how
+         submissions are sent to your email.
+         ============================================================ -->
+      <section id="contact-section">
+         <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+               <span class="slbl">Get In Touch</span>
+               <h2 class="stitle">Contact <span>Us</span></h2>
+               <div class="sline"></div>
+               <p class="sdesc mx-auto" style="max-width:480px;">Have a question, feedback, or want to plan a special event? We'd love to hear from you.</p>
+            </div>
+            <div class="row g-4">
+               <div class="col-lg-4" data-aos="fade-right">
+                  <div class="ctdark">
+                     <h4>Let's Talk</h4>
+                     <p class="ctsub">We typically respond within 2 hours during business hours.</p>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="ctinfo"><strong>Phone</strong><span>+6011 5556 6181</span></div>
+                     </div>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-envelope"></i></div>
+                        <div class="ctinfo"><strong>Email</strong><span>mazniharit.ofc@gmail.com</span></div>
+                     </div>
+                     <div class="ctitem">
+                        <div class="cticon"><i class="fas fa-clock"></i></div>
+                        <div class="ctinfo"><strong>Working Hours</strong><span>Mon - Sun: 9 AM - 11 PM</span></div>
+                     </div>
+                     <div class="ctsocrow">
+                        <a href="https://wa.me/601155566181"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/hot_dawgson?igsh=ZXJxN2tidHR1bjZu"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@kamarulariffin3093"><i class="fab fa-youtube"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-8" data-aos="fade-left">
+                  <div class="fcard">
+                     <!-- This <form> below is what visitors fill in.
+                        Each <input>/<select>/<textarea> below has a
+                        "name" attribute (name="name", name="email"...)
+                        - the script near the bottom of this page reads
+                        those to build the email that gets sent to you.
+                        If you add a new field, give it a unique
+                        "name" so it doesn't clash with the others. -->
+                     <form id="ctcForm">
+                     <div class="row g-3">
+                        <div class="col-sm-6"><label class="flbl">Your Name *</label><input type="text" class="fctrl" name="name" id="ctcName" required placeholder="John Doe"/></div>
+                        <div class="col-sm-6"><label class="flbl">Email Address *</label><input type="email" class="fctrl" name="email" id="ctcEmail" required placeholder="you@email.com"/></div>
+                        <div class="col-sm-6"><label class="flbl">Phone Number</label><input type="tel" class="fctrl" name="phone" id="ctcPhone" placeholder="+60 000-0000"/></div>
+                        <div class="col-sm-6">
+                           <label class="flbl">Subject *</label>
+                           <select class="fctrl" name="subject" id="ctcSubject" required>
+                              <option>General Inquiry</option>
+                              <option>Catering & amp; Events</option>
+                              <option>Feedback</option>
+                              <option>Partnership</option>
+                              <option>Media & amp; Press</option>
+                           </select>
+                        </div>
+                        <div class="col-12"><label class="flbl">Message *</label><textarea class="fctrl" name="message" id="ctcMessage" rows="5" required placeholder="Write your message here..."></textarea></div>
+                        <div class="col-12"><button type="submit" class="btn-red" id="ctcBtn"><i class="fas fa-paper-plane"></i><span id="ctcBtnTxt">Send Message</span></button></div>
+                     </div>
+                     </form>
+                     <p id="ctcErr" style="display:none;color:#ff6b6b;margin-top:12px;font-size:.85rem;">Something went wrong. Please try again or email us directly.</p>
+                     <div class="sucmsg" id="ctcOk" style="display:none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Message sent! We'll reply within 2 hours.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+      <!-- FOOTER (same as index.html - if you update the address,
+         phone, email, or hours here, update it on the other 3
+         pages too so they all stay matching) -->
+      <footer>
+         <div class="container">
+            <div class="row g-5">
+               <div class="col-lg-4">
+                  <div class="fnm">The Marul<span>.co</span></div>
+                  <p class="fdesc">We bring the world's finest flavors together in a fast, friendly, and affordable experience. Every meal crafted with love.</p>
+                  <div class="fsoc">
+                     <a href="#"><i class="fab fa-youtube"></i></a>
+                     <a href="#"><i class="fab fa-whatsapp"></i></a>
+                     <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Quick Links</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="index.html#hero"><i class="fas fa-chevron-right"></i>Home</a></li>
+                     <li><a href="about.html#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                     <li><a href="menu.html#menu"><i class="fas fa-chevron-right"></i>Our Menu</a></li>
+                     <li><a href="contact.html#contact-section"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 col-lg-2">
+                  <div class="ftit">Our Menu</div>
+                  <ul class="flinks ps-0">
+                     <li><a href="menu.html?filter=burgers#menu"><i class="fas fa-chevron-right"></i>Burgers</a></li>
+                     <li><a href="menu.html?filter=pizza#menu"><i class="fas fa-chevron-right"></i>Pizza</a></li>
+                     <li><a href="menu.html?filter=chicken#menu"><i class="fas fa-chevron-right"></i>Fried Chicken</a></li>
+                     <li><a href="menu.html?filter=wraps#menu"><i class="fas fa-chevron-right"></i>Wraps &amp; Rolls</a></li>
+                     <li><a href="menu.html?filter=pasta#menu"><i class="fas fa-chevron-right"></i>Pasta</a></li>
+                     <li><a href="menu.html?filter=desserts#menu"><i class="fas fa-chevron-right"></i>Desserts</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-4">
+                  <div class="ftit">Get In Touch</div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-map-marker-alt"></i></div>
+                     <div class="fciinfo"><strong>Address</strong>Lot 1444, Taman Amanah Fasa 1, Jenjarom, Klang.</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-phone-alt"></i></div>
+                     <div class="fciinfo"><strong>Phone</strong>+60 11-5556-6181</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-envelope"></i></div>
+                     <div class="fciinfo"><strong>Email</strong>mazniharit.ofc@gmail.com</div>
+                  </div>
+                  <div class="fci">
+                     <div class="fciico"><i class="fas fa-clock"></i></div>
+                     <div class="fciinfo"><strong>Hours</strong>Wed - Sun: 09 AM - 11 PM</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="fbot">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <p>&copy 2026 <span>The Marul.co</span>. All Rights Reserved.</p>
+                  <div><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="frameset-demo.html">Old Website</a><a href="disclaimer.html">Disclaimer</a></div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- Floating cart -->
+      <!-- <div class="cartfl"><i class="fas fa-shopping-cart"></i><span>My Cart</span><div class="ccount" id="cartCount">0</div></div> -->
+      <!-- Back to top -->
+      <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+    
+	<!-- jQuery -->
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <!-- Bootstrap 5 -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <!-- AOS -->
+      <script src="js/aos.js"></script>
+      <!-- Swiper -->
+      <script src="js/swiper-bundle.min.js"></script>
+      <!-- CounterUp -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <!-- Main js -->
+      <script src="js/main.js"></script>
+      <!--
+         ============================================================
+         HOW THE CONTACT FORM SENDS YOU AN EMAIL
+         ============================================================
+         When someone fills in the form above and hits "Send Message",
+         this script grabs what they typed and sends it to a free
+         service called FormSubmit.co, which then emails it to the
+         address in CONTACT_EMAIL below. No backend/server needed.
+
+         TO CHANGE WHERE MESSAGES GET SENT: just update the email
+         address inside the quotes on the CONTACT_EMAIL line.
+
+         Note: the FIRST time you change to a new email address,
+         FormSubmit.co will send that inbox a one-time confirmation
+         link - someone needs to click it before messages start
+         arriving, otherwise they'll silently not go through.
+         ============================================================
+      -->
+      <script>
+         $(function(){
+            // Contact form: send via FormSubmit.co (AJAX, no page reload)
+            var CONTACT_EMAIL = 'mazniharit.ofc@gmail.com';
+            $('#ctcForm').on('submit', function(e){
+               e.preventDefault();
+               var $form = $(this);
+               var $btn = $('#ctcBtn');
+               var $btnTxt = $('#ctcBtnTxt');
+               var $ok = $('#ctcOk');
+               var $err = $('#ctcErr');
+
+               $ok.hide();
+               $err.hide();
+               $btn.prop('disabled', true);
+               $btnTxt.text('Sending...');
+
+               var payload = {
+                  name: $('#ctcName').val(),
+                  email: $('#ctcEmail').val(),
+                  phone: $('#ctcPhone').val(),
+                  subject: $('#ctcSubject').val(),
+                  message: $('#ctcMessage').val(),
+                  _subject: 'New contact form message - The Marul.co',
+                  _template: 'table',
+                  _captcha: 'false'
+               };
+
+               fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(payload)
+               })
+               .then(function(res){ return res.json(); })
+               .then(function(){
+                  $ok.fadeIn();
+                  $form[0].reset();
+               })
+               .catch(function(){
+                  $err.fadeIn();
+               })
+               .finally(function(){
+                  $btn.prop('disabled', false);
+                  $btnTxt.text('Send Message');
+               });
+            });
+         });
+      </script>
+   </body>
+</html>

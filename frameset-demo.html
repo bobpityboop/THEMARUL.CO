@@ -1,0 +1,46 @@
+<!--
+   ============================================================
+   FRAMESET DEMO - frameset-demo.html
+   ============================================================
+   This file demonstrates the classic HTML "frameset". Each panel loads its own HTML file independently. 
+   It kept as a SEPARATE, standalone file from the real
+   site so the actual website keeps working normally and isn't affected by this at all.
+   ============================================================
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+   <title>The Marul.co - Old Website</title>
+</head>
+
+<frameset cols="220px,*" border="1">
+    <!--
+      FRAME 1: the navigation sidebar.
+      - src        = which HTML file loads inside this frame
+      - name       = a label so other frames/links can target it
+      - noresize   = stops the visitor from dragging to resize it
+      - scrolling  = "no" hides the scrollbar for this frame
+   -->
+   <frame src="frame-nav.html" name="navFrame" noresize="noresize" scrolling="no">
+   <!--
+      FRAME 2: the main content area.
+      This starts out showing frame-welcome.html, but clicking a
+      link in the nav frame (FRAME 1) will load a different page
+      in here instead - see frame-nav.html for how that works.
+   -->
+   <frame src="frame-welcome.html" name="mainFrame" scrolling="auto">
+   <!--
+      Fallback content for very old/unusual browsers that don't
+      support frames at all. Frame-capable browsers ignore this
+      completely.
+   -->
+   <noframes>
+      <body>
+         <p>Your browser does not support frames. Please
+         <a href="index.html">click here to visit the site</a>
+         normally instead.</p>
+      </body>
+   </noframes>
+
+</frameset>
+</html>
